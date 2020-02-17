@@ -1,27 +1,38 @@
-# NcReactorPlanner
+# NC Reactor Planner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+A collection of tools for creating Nuclearcraft reactors.
 
-## Development server
+I create this project mainly for learning Angular and web development, so don't expect
+too much.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Contribution / Ideas
 
-## Code scaffolding
+If you have an ideas or want to contribute to the project, **create a new issue** to discuss the idea or proposed
+changes. If all is well create a PR and I'll merge it.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Coding Style/Guidelines
 
-## Build
+I personally don't really enforce strict style/guidelines. Just keep the code clean and readable so it's
+easy to go back and use it as a reference for future Angular projects. Add comments when necessary, e.g.
+complicated calculations or unreadable code (happens sometimes).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Angular by default creates TSLint rules, try to follow them as much as possible to keep the code somewhat
+consistent. *Modern editors complain when you don't follow them anyway.*
 
-## Running unit tests
+## Roadmap
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Upcoming features I'm planning to add (sorted by priority):
 
-## Running end-to-end tests
+1. Turbine calculator
+2. Molten salt planner (Heat, RF, Amount of coolant needed, ...)
+3. Fusion calculator (fuel usage, RF/t, ...)
+4. Actively cooled reactors
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* Reactor optimizers (given a set of parameters find the fastest/most efficient/... reactor)
 
-## Further help
+I might implement a lower priority feature first if I'm in the mood for it.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+
+This project is licensed under the [MIT license](https://choosealicense.com/licenses/mit/),
+that means you can basically edit and use the software and its source code in whatever way you want.
