@@ -1,0 +1,75 @@
+<div class="container mt-3">
+  <h1>Passive Reactor</h1>
+  <p class="lead">
+    This tool lets you calculate the heat and energy produced by a passively cooled fission reactor.<br>
+    <small class="text-muted">He's still WIP so be patient with him 😅.</small>
+  </p>
+  <div class="row">
+    <aside id="sidebar" class="col-3">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header" (click)="dimensionsCollapsed = !dimensionsCollapsed">
+              Dimensions
+            </h5>
+            <div class="card-body" [ngbCollapse]="dimensionsCollapsed">
+              <form>
+                <input type="number" min="1" max="24" class="form-control" id="width_input" name="width" placeholder="Width" [(ngModel)]="width">
+                <input type="number" min="1" max="24" class="form-control mt-1" id="depth_input" name="depth" placeholder="Depth" [(ngModel)]="depth">
+                <input type="number" min="1" max="24" class="form-control mt-1" id="height_input" name="height" placeholder="Height" [(ngModel)]="height">
+                <button class="btn btn-danger mt-2" (click)="generateLayout()">Set</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header" (click)="coolersCollapsed = !coolersCollapsed">Components</h5>
+            <div class="card-body" [ngbCollapse]="coolersCollapsed">
+              <app-passive-cooler-selector [(selectedComponent)]="selectedComponent"></app-passive-cooler-selector>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header" (click)="fuelCollapsed = !fuelCollapsed">Fuel</h5>
+            <div class="card-body" [ngbCollapse]="fuelCollapsed">
+              <form>
+                <div class="form-group">
+                  <select class="form-control" id="fuelSelect" name="selectedFuel" [(ngModel)]="reactor.fuel">
+                    <option *ngFor="let fuel of fuels" [ngValue]="fuel">{{fuel.name}}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main class="col">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <app-passive-editor [reactor]="reactor" [selectedComponent]="selectedComponent"></app-passive-editor>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header" (click)="statsCollapsed = !statsCollapsed">Reactor Stats</h5>
+            <div class="card-body" [ngbCollapse]="statsCollapsed">
+              <app-passive-stats [reactor]="reactor"></app-passive-stats>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

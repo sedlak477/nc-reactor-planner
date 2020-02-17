@@ -1,0 +1,13 @@
+<div class="d-flex flex-column">
+  <div *ngFor="let row of reactorLayer; let y = index" class="d-flex flex-row">
+    <img class="flex-fill" *ngFor="let component of row; let x = index"
+         [src]="component.icon" [alt]="component.name"
+         draggable="false"
+         (click)="setComponent(x, y, selectedComponent)"
+         (mouseenter)="mouseEnter($event, x, y, selectedComponent)"
+         (mouseleave)="mouseEnter($event, x, y, selectedComponent)"
+         [ngbPopover]="component.name"
+         openDelay="800"
+         triggers="mouseenter:mouseleave">
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let layer of reactor.layout" class="col">
+      <app-passive-layer-editor [reactorLayer]="layer" [selectedComponent]="selectedComponent"></app-passive-layer-editor>
+    </div>
+  </div>
+</div>

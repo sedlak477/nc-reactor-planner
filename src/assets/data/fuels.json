@@ -1,0 +1,30 @@
+[
+  {
+    "id": "tbu",
+    "name": "TBU",
+    "fuel_time": 144000,
+    "power": 60,
+    "heat_generation": 18
+  },
+  {
+    "id": "tbu_oxide",
+    "name": "TBU Oxide",
+    "fuel_time": 144000,
+    "power": 84,
+    "heat_generation": 22
+  },
+  {
+    "id": "leu_233",
+    "name": "LEU-233",
+    "fuel_time": 64000,
+    "power": 144,
+    "heat_generation": 60
+  },
+  {
+    "id": "leu_233_oxide",
+    "name": "LEU-233 Oxide",
+    "fuel_time": 64000,
+    "power": 201.6,
+    "heat_generation": 75
+  }
+]
