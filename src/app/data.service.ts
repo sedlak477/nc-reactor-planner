@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Cooler } from './model/fission-reactor/cooler';
 import { Fuel } from './model/fission-reactor/fuel';
 import { Fission, NuclearcraftConfig } from './model/config';
-import { map } from 'rxjs/operators';
 import { parse } from 'minecraft-forge-cfg';
 
 @Injectable({
@@ -15,7 +14,18 @@ export class DataService {
   private readonly config = new BehaviorSubject<NuclearcraftConfig>(null);
 
   constructor(private http: HttpClient) {
-    this.http.get<NuclearcraftConfig>('assets/data/nuclearcraft_config.json').subscribe(config => this.config.next(config));
+    if (window.localStorage) {
+      try {
+        const localConfig: NuclearcraftConfig = JSON.parse(window.localStorage.getItem('nc_config'));
+        this.config.next(localConfig);
+      } catch (e) {
+        this.resetConfig();
+      }
+
+      this.config.subscribe(config => window.localStorage.setItem('nc_config', JSON.stringify(config)));
+    } else {
+      this.resetConfig();
+    }
   }
 
   passiveCoolers(): Cooler[] {
@@ -37,6 +47,10 @@ export class DataService {
     reader.onload = (event: any) => this.config.next(parse(event.target.result));
 
     reader.readAsText(file);
+  }
+
+  resetConfig(): void {
+    this.http.get<NuclearcraftConfig>('assets/data/nuclearcraft_config.json').subscribe(config => this.config.next(config));
   }
 
   private passiveCoolerFromConfig(): Cooler[] {
