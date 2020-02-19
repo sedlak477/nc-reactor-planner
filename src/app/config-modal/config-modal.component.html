@@ -24,5 +24,6 @@
   <small class="mr-auto">Changes are saved automatically.</small>
   <input #cfgFileInput type="file" accept=".cfg" (change)="fileChanged($event)" class="d-none">
   <button type="button" class="btn btn-outline-primary" (click)="cfgFileInput.click()">Load .cfg File</button>
+  <button class="btn btn-outline-danger" (click)="data.resetConfig()">Reset</button>
   <button type="button" class="btn btn-primary" (click)="activeModal.dismiss('Close click')">Done</button>
 </div>

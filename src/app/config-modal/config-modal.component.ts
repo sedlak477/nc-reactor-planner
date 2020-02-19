@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NuclearcraftConfig } from '../model/config';
 import { DataService } from '../data.service';
@@ -12,7 +12,7 @@ export class ConfigModalComponent implements OnInit {
 
   public config: NuclearcraftConfig;
 
-  constructor(public activeModal: NgbActiveModal, private data: DataService) {
+  constructor(public activeModal: NgbActiveModal, public data: DataService) {
     data.getConfig().subscribe(config => this.config = config);
   }
 
