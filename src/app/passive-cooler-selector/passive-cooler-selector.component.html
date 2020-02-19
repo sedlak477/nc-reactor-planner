@@ -1,5 +1,5 @@
 <form>
-  <div *ngFor="let component of components; let i = index" class="form-check" [ngbPopover]="component.description" [popoverTitle]="component.name" triggers="mouseenter:mouseleave" placement="right">
+  <div *ngFor="let component of components; let i = index" class="form-check" [ngbPopover]="component.description" [popoverTitle]="getPopoverTitle(component)" triggers="mouseenter:mouseleave" placement="right">
     <input class="form-check-input" [id]="component.id" name="selectedCooler" type="radio" [value]="component" (change)="selectionChangedHandler(component)" [checked]="i === 0">
     <label class="form-check-label" [for]="component.id">
       {{component.name}}

@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <h1>Passive Reactor</h1>
+  <h1>Passive Reactor Planner</h1>
   <p class="lead">
     This tool lets you calculate the heat and energy produced by a passively cooled fission reactor.<br>
     <small class="text-muted">He's still WIP so be patient with him 😅.</small>
@@ -14,9 +14,9 @@
             </h5>
             <div class="card-body" [ngbCollapse]="dimensionsCollapsed">
               <form>
-                <input type="number" min="1" max="24" class="form-control" id="width_input" name="width" placeholder="Width" [(ngModel)]="width">
-                <input type="number" min="1" max="24" class="form-control mt-1" id="depth_input" name="depth" placeholder="Depth" [(ngModel)]="depth">
-                <input type="number" min="1" max="24" class="form-control mt-1" id="height_input" name="height" placeholder="Height" [(ngModel)]="height">
+                <input type="number" [min]="minSize" [max]="maxSize" class="form-control" id="width_input" name="width" placeholder="Width" [(ngModel)]="width">
+                <input type="number" [min]="minSize" [max]="maxSize" class="form-control mt-1" id="depth_input" name="depth" placeholder="Depth" [(ngModel)]="depth">
+                <input type="number" [min]="minSize" [max]="maxSize" class="form-control mt-1" id="height_input" name="height" placeholder="Height" [(ngModel)]="height">
                 <button class="btn btn-danger mt-2" (click)="generateLayout()">Set</button>
               </form>
             </div>

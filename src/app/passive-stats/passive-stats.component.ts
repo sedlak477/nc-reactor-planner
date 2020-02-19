@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ReactorLayout } from '../model/fission-reactor/reactor-layout';
 
 @Component({

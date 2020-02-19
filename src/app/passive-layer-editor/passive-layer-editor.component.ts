@@ -21,7 +21,7 @@ export class PassiveLayerEditorComponent implements OnInit {
   }
 
   setComponent(x: number, y: number, component: ReactorComponent): void {
-    Object.assign(this.reactorLayer[y][x], component);
+    this.completeAssign(this.reactorLayer[y][x], component);
   }
 
   mouseEnter(event: MouseEvent, x: number, y: number, component: ReactorComponent): void {
@@ -29,6 +29,29 @@ export class PassiveLayerEditorComponent implements OnInit {
     if (event.buttons & 1) {
       this.setComponent(x, y, component);
     }
+  }
+
+  /*
+  * This method also copies the getters and setters additional to the object properties.
+  *
+  * Source: https://www.takuzen.me/2019/03/08/Object-assign-with-accessor-descriptor/
+  */
+  private completeAssign(target, ...sources) {
+    sources.forEach(source => {
+      const descriptors = Object.keys(source).reduce((descriptors, key) => {
+        descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
+        return descriptors;
+      }, {});
+      // by default, Object.assign copies enumerable Symbols too
+      Object.getOwnPropertySymbols(source).forEach(sym => {
+        const descriptor = Object.getOwnPropertyDescriptor(source, sym);
+        if (descriptor.enumerable) {
+          descriptors[sym] = descriptor;
+        }
+      });
+      Object.defineProperties(target, descriptors);
+    });
+    return target;
   }
 
 }

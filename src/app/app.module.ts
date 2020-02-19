@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { PassiveEditorComponent } from './passive-editor/passive-editor.component';
 import { PassiveLayerEditorComponent } from './passive-layer-editor/passive-layer-editor.component';
 import { HomeComponent } from './home/home.component';
+import { ConfigModalComponent } from './config-modal/config-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     PassiveStatsComponent,
     PassiveEditorComponent,
     PassiveLayerEditorComponent,
-    HomeComponent
+    HomeComponent,
+    ConfigModalComponent
   ],
   imports: [
     BrowserModule,

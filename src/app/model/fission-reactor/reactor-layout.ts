@@ -1,8 +1,8 @@
 import { Components, ReactorComponent } from './reactor-component';
-import { Fuel } from '../fuel';
-import { FissionConfig } from '../fission-config';
+import { Fuel } from './fuel';
 import { ReactorCell } from './reactor-cell';
 import { Block, Layer } from './shapes';
+import { Fission } from '../config';
 
 
 export class ReactorLayout {
@@ -13,7 +13,7 @@ export class ReactorLayout {
               public readonly depth: number,
               public readonly height: number,
               public fuel: Fuel,
-              public config: FissionConfig) {
+              public config: Fission) {
 
     for (let z = 0; z < height; z++) {
       this.layout.push([]);
@@ -45,6 +45,16 @@ export class ReactorLayout {
       return this.layout[z][y][x];
     } else {
       throw new Error('Index out of range.');
+    }
+  }
+
+  *[Symbol.iterator](): Iterator<ReactorCell> {
+    for (let x = 0; x < this.width; x++) {
+      for (let y = 0; y < this.depth; y++) {
+        for (let z = 0; z < this.height; z++) {
+          yield this.layout[z][y][x];
+        }
+      }
     }
   }
 

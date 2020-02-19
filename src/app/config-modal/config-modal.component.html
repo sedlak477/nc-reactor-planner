@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h5 class="modal-title">Nuclearcraft Configuration</h5>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p class="lead">Change all the Nuclearcraft settings to your heart's content. Or just load the from the .cfg file.</p>
+  <blockquote class="blockquote">You can find the .cfg file inside the <code>config</code> folder in your <code>.minecraft</code> directory.</blockquote>
+  <form>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-3">
+          <label for="input_fission_power">Fission Power</label>
+        </div>
+        <div class="col">
+          <input id="input_fission_power" name="fission_power" type="text" class="form-control" [ngModel]="config && config.fission && config.fission.fission_power">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <small class="mr-auto">Changes are saved automatically.</small>
+  <input #cfgFileInput type="file" accept=".cfg" (change)="fileChanged($event)" class="d-none">
+  <button type="button" class="btn btn-outline-primary" (click)="cfgFileInput.click()">Load .cfg File</button>
+  <button type="button" class="btn btn-primary" (click)="activeModal.dismiss('Close click')">Done</button>
+</div>

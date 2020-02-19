@@ -1,9 +1,0 @@
-{
-  "fission_power": 1,
-  "fission_fuel_use": 1,
-  "fission_heat_generation": 1,
-  "fission_water_cooler_requirement": true,
-  "fission_moderator_extra_power": 1,
-  "fission_moderator_extra_heat": 2,
-  "fission_neutron_reach": 4
-}

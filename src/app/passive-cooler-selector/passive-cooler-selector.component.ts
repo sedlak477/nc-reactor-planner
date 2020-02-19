@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Components, ReactorComponent } from '../model/fission-reactor/reactor-component';
+import { Components, isCooler, ReactorComponent } from '../model/fission-reactor/reactor-component';
+import { DataService } from '../data.service';
+import { Cooler } from '../model/fission-reactor/cooler';
 
 @Component({
   selector: 'app-passive-cooler-selector',
@@ -22,11 +23,8 @@ export class PassiveCoolerSelectorComponent implements OnInit {
     Components.BERYLLIUM
   ];
 
-  constructor(route: ActivatedRoute) {
-    route.data.subscribe(data => {
-      this.components.length = 4;
-      this.components.push(...data.passiveCoolers);
-    });
+  constructor(data: DataService) {
+    this.components.push(...data.passiveCoolers());
   }
 
   ngOnInit(): void {
@@ -34,5 +32,9 @@ export class PassiveCoolerSelectorComponent implements OnInit {
 
   selectionChangedHandler(data: ReactorComponent): void {
     this.selectedComponentChange.emit(data);
+  }
+
+  getPopoverTitle(component: ReactorComponent): string {
+    return component.name + (isCooler(component) ? ` - ${component.rate} H/t` : '');
   }
 }

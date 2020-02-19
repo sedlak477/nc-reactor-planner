@@ -2,10 +2,13 @@
   <a class="navbar-brand" routerLink="/">NC Reactor Planner</a>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/passive-planner" routerLinkActive="active" >Passive Reactor Planner</a>
+      <a class="nav-link" routerLink="/passive-planner" routerLinkActive="active">Passive Reactor Planner</a>
     </li>
   </ul>
-  <div class="ml-auto custom-control custom-switch invisible" ngbPopover="Ads help me pay for the server costs, but if they annoy you feel free to disable them." triggers="mouseenter:mouseleave">
+  <button class="btn btn-outline-light ml-auto" (click)="openSettingsModal()">
+    NC Config
+  </button>
+  <div class="custom-control custom-switch d-none" ngbPopover="Ads help me pay for the server costs, but if they annoy you feel free to disable them." triggers="mouseenter:mouseleave">
     <input type="checkbox" class="custom-control-input" name="ads" id="ads_checkbox" [(ngModel)]="adsEnabled">
     <label class="custom-control-label text-black-50" for="ads_checkbox">Ads</label>
   </div>
