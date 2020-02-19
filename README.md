@@ -29,6 +29,7 @@ Upcoming features I'm planning to add (sorted by priority):
 4. Actively cooled reactors
 
 * Reactor optimizers (given a set of parameters find the fastest/most efficient/... reactor)
+* 3D Model showing reactor design
 
 I might implement a lower priority feature first if I'm in the mood for it.
 

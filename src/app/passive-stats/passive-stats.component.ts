@@ -16,4 +16,11 @@ export class PassiveStatsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  fuelDuration(): number {
+    return this.reactor.fuel.fuel_time / (this.reactor.fuelCellCount() * this.reactor.config.fission_fuel_use * 20);
+  }
+
+  meltdownTime(): number {
+    return this.reactor.heatPerTick() > 0 ? 1200000 / (this.reactor.heatPerTick() * 20) : Number.POSITIVE_INFINITY;
+  }
 }

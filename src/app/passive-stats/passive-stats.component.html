@@ -1,8 +1,20 @@
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">
-    H/t: {{reactor.heatPerTick()}}
-  </li>
-  <li class="list-group-item">
-    RF/t: {{reactor.energyPerTick()}}
-  </li>
-</ul>
+<table class="table table-borderless table-hover">
+  <tbody>
+  <tr>
+    <th scope="row">Heat produced</th>
+    <td [class.text-danger]="reactor.heatPerTick() > 0" >{{reactor.heatPerTick() | number : '1.0-1' }} H/t</td>
+  </tr>
+  <tr>
+    <th scope="row">Energy produced</th>
+    <td>{{reactor.energyPerTick() | number : '1.0-1' }} RF/t</td>
+  </tr>
+  <tr>
+    <th scope="row">Fuel Duration</th>
+    <td>{{fuelDuration() | number : '1.0-1' }} s</td>
+  </tr>
+  <tr>
+    <th scope="row">Meltdown Time</th>
+    <td>{{meltdownTime() | number : '1.0-1' }} s</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,4 +1,4 @@
-import { Components, ReactorComponent } from './reactor-component';
+import { Components, isFuelCell, ReactorComponent } from './reactor-component';
 import { Fuel } from './fuel';
 import { ReactorCell } from './reactor-cell';
 import { Block, Layer } from './shapes';
@@ -84,5 +84,13 @@ export class ReactorLayout {
     }
 
     return energy;
+  }
+
+  fuelCellCount(): number {
+    let count = 0;
+    for (const cell of this) {
+      if (isFuelCell(cell)) { count++; }
+    }
+    return count;
   }
 }
