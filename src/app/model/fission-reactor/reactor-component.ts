@@ -28,6 +28,66 @@ export function isAir(data: ReactorComponent): boolean {
   return data.type === 'air';
 }
 
+export function isWaterCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'water';
+}
+
+export function isRedstoneCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'redstone';
+}
+
+export function isQuartzCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'quartz';
+}
+
+export function isGoldCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'gold';
+}
+
+export function isGlowstoneCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'glowstone';
+}
+
+export function isLapisCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'lapis';
+}
+
+export function isDiamondCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'diamond';
+}
+
+export function isLiquidHeliumCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'liquid_helium';
+}
+
+export function isEnderiumCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'enderium';
+}
+
+export function isCryotheumCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'cryotheum';
+}
+
+export function isIronCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'iron';
+}
+
+export function isEmeraldCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'emerald';
+}
+
+export function isCopperCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'copper';
+}
+
+export function isTinCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'tin';
+}
+
+export function isMagnesiumCooler(data: ReactorComponent): data is Cooler {
+  return isCooler(data) && data.id === 'magnesium';
+}
+
 export const Components: {
     AIR: ReactorComponent;
     FUEL_CELL: ReactorComponent;
